@@ -235,14 +235,46 @@ for (let i = 0; i < maxRows; i++) {
     tableBody.appendChild(row);
 }
 
-// Assignments
+// Updated Assignments
 const assignments = [
-    { module: "CS4023", name: "Lab work", dueDate: new Date(2023, 9, 25), repeatWeekly: true , percentageOfGrade: 5 },
-    { module: "MS4021", name: "Tutorial work", dueDate: new Date(2023, 9, 18), repeatWeekly: true , percentageOfGrade: 2 },
-    { module: "CS4013", name: "C++ assingment ", dueDate: new Date(2023, 8, 20), percentageOfGrade: 20 },
-    { module: "PCS4096", name: "Software aretefact demo", dueDate: new Date(2023, 11, 5), percentageOfGrade: 50 },
-    { module: "CS4096", name: "Software artefact report", dueDate: new Date(2023, 11, 10) , percentageOfGrade: 50}
+    // For CS4096
+    { module: "CS4096", name: "Software artefact", dueDate: new Date(2023, 11, 1), percentageOfGrade: 50 },
+    { module: "CS4096", name: "Software artefact report", dueDate: new Date(2023, 11, 1), percentageOfGrade: 50 },
+    
+    // For MS4131
+    { module: "MS4131", name: "Assignment", dueDate: new Date(2023, 10, 13), repeatWeekly: false, percentageOfGrade: 7.5 },
+    { module: "MS4131", name: "Assignment", dueDate: new Date(2023, 11, 24), repeatWeekly: false, percentageOfGrade: 7.5 },
+    
+    // For MS4021
+    { module: "MS4021", name: "Mid term", dueDate: new Date(2023, 9, 17), percentageOfGrade: 30 },
+    
+    // For CS4416
+    { module: "CS4416", name: "MCQ", dueDate: new Date(2023, 10, 20), percentageOfGrade: 15 },
+    { module: "CS4416", name: "Group project", dueDate: new Date(2023, 11, 29), percentageOfGrade: 20 },
+    
+    // For CS4178
+    { module: "CS4178", name: "Group project 1", dueDate: new Date(2023, 9, 25), percentageOfGrade: 20 },
+    { module: "CS4178", name: "Group project 2", dueDate: new Date(2023, 10, 23), percentageOfGrade: 20 },
+    { module: "CS4178", name: "Group project 3", dueDate: new Date(2023, 11, 29), percentageOfGrade: 40 },
+    
+    // For CS4013
+    { module: "CS4013", name: "Lab", dueDate: new Date(2023, 9, 30), repeatWeekly: true, percentageOfGrade: 2 },
+    { module: "CS4013", name: "MCQ", dueDate: new Date(2023, 10, 20), percentageOfGrade: 10 },
+    // Group project dueDate is unknown so I'm not adding it
+    
+    // For CS4023 (with specific weeks mentioned)
+    { module: "CS4023", name: "Lab work", dueDate: new Date(2023, 9, 25), repeatWeekly: false, percentageOfGrade: 5 },
+    { module: "CS4023", name: "Lab work", dueDate: new Date(2023, 10, 2), repeatWeekly: false, percentageOfGrade: 5 },
+    { module: "CS4023", name: "Lab work", dueDate: new Date(2023, 10, 16), repeatWeekly: false, percentageOfGrade: 5 },
+    { module: "CS4023", name: "Lab work", dueDate: new Date(2023, 10, 30), repeatWeekly: false, percentageOfGrade: 5 },
+    { module: "CS4023", name: "Lab work", dueDate: new Date(2023, 11, 6), repeatWeekly: false, percentageOfGrade: 5 },
+    { module: "CS4023", name: "Lab work", dueDate: new Date(2023, 11, 13), repeatWeekly: false, percentageOfGrade: 5 },
+    { module: "CS4023", name: "Mid term", dueDate: new Date(2023, 10, 30), percentageOfGrade: 30 },
+    
+    // For MS4613
+    { module: "MS4613", name: "Mid Term", dueDate: new Date(2023, 10, 20), percentageOfGrade: 10 }
 ];
+
 
 // Generate the list of assignments to be displayed, considering repeated assignments
 let displayedAssignments = [];
