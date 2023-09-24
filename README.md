@@ -1,4 +1,5 @@
-# chatgpt-api-azure-function
+# Personal Website
 
 Personal Website I use to check my timetable , the weather for limerick , When my assingments are due and interface with a personalized version of ChatGPT
 
+This is not a portfolio website where I show off projects, This was built for my own personal needs 
