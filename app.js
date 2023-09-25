@@ -253,7 +253,7 @@ const assignments = [
     { module: "CS4416", name: "Group project", dueDate: new Date(2023, 11, 29), percentageOfGrade: 20 },
     
     // For CS4178
-    { module: "CS4178", name: "Group project 1", dueDate: new Date(2023, 9, 25), percentageOfGrade: 20 },
+    { module: "CS4178", name: "Group project 1", dueDate: new Date(2023, 10, 1), percentageOfGrade: 20 },
     { module: "CS4178", name: "Group project 2", dueDate: new Date(2023, 10, 23), percentageOfGrade: 20 },
     { module: "CS4178", name: "Group project 3", dueDate: new Date(2023, 11, 29), percentageOfGrade: 40 },
     
