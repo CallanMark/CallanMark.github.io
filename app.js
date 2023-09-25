@@ -278,12 +278,17 @@ const assignments = [
 
 // Generate the list of assignments to be displayed, considering repeated assignments
 let displayedAssignments = [];
+
+const MAX_REPETITIONS = 12;
+
 assignments.forEach(assignment => {
     if (assignment.repeatWeekly) {
         let dueDate = new Date(assignment.dueDate);
-        while (displayedAssignments.length + 1 <= 8) {
+        let repetitions = 0;
+        while (repetitions < MAX_REPETITIONS) {
             displayedAssignments.push({ ...assignment, dueDate: new Date(dueDate) });
-            dueDate.setDate(dueDate.getDate() + 7); // next Friday
+            dueDate.setDate(dueDate.getDate() + 7); // next week
+            repetitions++;
         }
     } else {
         displayedAssignments.push(assignment);
@@ -292,7 +297,6 @@ assignments.forEach(assignment => {
 
 // Sort by dueDate and limit to 8 assignments
 displayedAssignments.sort((a, b) => a.dueDate - b.dueDate);
-displayedAssignments = displayedAssignments.slice(0, 8);
 
 // Generate HTML table
 let assignmentsTable = `
