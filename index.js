@@ -4,8 +4,8 @@ const cors = require('cors');
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-    organization: "org-7lR9sPnyk3JePp1GhazzuIFm",
-	apiKey: "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",
+    organization: "org-7lR9sPnyk3JePp1GhazzuIFm",// organization and apiKey are retracted as this repo is open source
+	apiKey: "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", // Screenshots are available in readme.md
 });
 const openai = new OpenAIApi(configuration);
 
@@ -34,7 +34,7 @@ app.post("/", async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Welcome to my GPT-3 chat server!');
+    res.send('Welcome to my GPT-3 chat server! [CallanMark.Github.io]');
 });
 
 app.listen(port, () => {
