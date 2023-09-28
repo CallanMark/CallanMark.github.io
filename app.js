@@ -386,7 +386,7 @@ examsTable += `
   
 
 document.addEventListener('DOMContentLoaded', function() {
-    const WAPI_KEY = "b4b8c89061780bcc1092be3d8d658f67";
+    const WAPI_KEY = "Retracted"; // Retracted as this repo is public
     const lat = "52.679150";
     const lon = "-8.569360";
     const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,daily&appid=${WAPI_KEY}&units=metric`;
