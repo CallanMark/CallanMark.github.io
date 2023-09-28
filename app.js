@@ -343,48 +343,6 @@ const exams = [
     // ... Other exams/quizzes
 ];
 
-// Generate exams/quizzes table
-let examsTable = `
-<h2>Exams/Quizzes:</h2>
-<table border="1">
-    <thead>
-        <tr>
-            <th>Module</th>
-            <th>Name</th>
-            <th>Time</th>
-            <th>% of Grade</th>
-            <th>Due</th>
-        </tr>
-    </thead>
-    <tbody>
-`;
-
-exams.forEach(exam => {
-    const daysUntilExam = Math.ceil((exam.date - currentDateTime) / (1000 * 60 * 60 * 24));
-    let rowColor = "green";
-    if (exam.percentageOfGrade >= 25) {
-        rowColor = "red";
-    } else if (exam.percentageOfGrade >= 5) {
-        rowColor = "orange";
-    }
-    
-    examsTable += `
-        <tr style="background-color:${rowColor}">
-            <td>${exam.module}</td>
-            <td>${exam.name}</td>
-            <td>${exam.time}</td>
-            <td>${exam.percentageOfGrade}%</td>
-            <td>${daysUntilExam} days</td>
-        </tr>
-    `;
-});
-
-examsTable += `
-    </tbody>
-</table>
-`;
-  
-
 document.addEventListener('DOMContentLoaded', function() {
     const WAPI_KEY = "b4b8c89061780bcc1092be3d8d658f67"; // Did not retract this as this API is free  
     const lat = "52.679150";
