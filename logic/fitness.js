@@ -82,17 +82,21 @@ const exerciseData = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+    const submitButton = document.getElementById("submitExercise");
     const exerciseMenu = document.getElementById("exerciseMenu");
     const displayArea = document.getElementById("displayArea");
 
-    if (!exerciseMenu || !displayArea) {
+    if (!submitButton || !exerciseMenu || !displayArea) {
         console.error("Some DOM elements are missing!");
         return;
     }
 
-    exerciseMenu.addEventListener('change', function() {
-        if (this.value) {
-            displayExercises(exerciseData[this.value]);
+    submitButton.addEventListener('click', function() {
+        const selectedCategory = exerciseMenu.value;
+        if (selectedCategory) {
+            displayExercises(exerciseData[selectedCategory]);
+        } else {
+            displayArea.innerHTML = 'Please select a category.';
         }
     });
 });
