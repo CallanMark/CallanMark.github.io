@@ -81,26 +81,25 @@ const exerciseData = {
     ]
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const exerciseMenu = document.getElementById("exerciseMenu");
-    const displayArea = document.getElementById("exerciseData");
+    const displayArea = document.getElementById("displayArea");
 
-    exerciseMenu.addEventListener('change', function () {
-        const selectedCategory = this.value;
-        const exercises = exerciseData[selectedCategory];
-        displayExercises(exercises, displayArea);
+    exerciseMenu.addEventListener('change', function() {
+        displayExercises(workoutPlan[this.value]);
     });
 });
 
-function displayExercises(exercises, displayArea) {
-    displayArea.innerHTML = ''; // Clear previous entries
-    if (exercises.length) {
-        exercises.forEach((exercise) => {
-            const para = document.createElement("p");
-            para.textContent = `${exercise.exerciseName}: ${exercise.setsReps}`;
-            displayArea.appendChild(para);
-        });
-    } else {
-        displayArea.textContent = "No exercises listed for this category.";
-    }
+
+function displayExercises(exercises) {
+const area = document.getElementById("displayArea");
+area.innerHTML = ''; // Clear previous content
+
+if (!exercises) return; // If no exercises are selected
+
+exercises.forEach(exercise => {
+    const exerciseDiv = document.createElement("div");
+    exerciseDiv.innerHTML = `<strong>${exercise.exerciseName}</strong>: ${exercise.setsReps}`;
+    area.appendChild(exerciseDiv);
+});
 }
