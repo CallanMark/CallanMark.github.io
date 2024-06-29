@@ -85,21 +85,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const exerciseMenu = document.getElementById("exerciseMenu");
     const displayArea = document.getElementById("displayArea");
 
+    if (!exerciseMenu || !displayArea) {
+        console.error("Some DOM elements are missing!");
+        return;
+    }
+
     exerciseMenu.addEventListener('change', function() {
-        displayExercises(workoutPlan[this.value]);
+        if (this.value) {
+            displayExercises(workoutPlan[this.value]);
+        }
     });
 });
 
-
 function displayExercises(exercises) {
-const area = document.getElementById("displayArea");
-area.innerHTML = ''; // Clear previous content
+    const area = document.getElementById("displayArea");
+    area.innerHTML = ''; // Clear previous content
 
-if (!exercises) return; // If no exercises are selected
+    if (!exercises) return; // If no exercises are selected
 
-exercises.forEach(exercise => {
-    const exerciseDiv = document.createElement("div");
-    exerciseDiv.innerHTML = `<strong>${exercise.exerciseName}</strong>: ${exercise.setsReps}`;
-    area.appendChild(exerciseDiv);
-});
+    exercises.forEach(exercise => {
+        const exerciseDiv = document.createElement("div");
+        exerciseDiv.innerHTML = `<strong>${exercise.name}</strong>: ${exercise.details}`;
+        area.appendChild(exerciseDiv);
+    });
 }
