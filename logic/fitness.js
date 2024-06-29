@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     exerciseMenu.addEventListener('change', function() {
         if (this.value) {
-            displayExercises(workoutPlan[this.value]);
+            displayExercises(exerciseData[this.value]);
         }
     });
 });
