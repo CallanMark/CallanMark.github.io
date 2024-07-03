@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitButton = document.getElementById("submitExercise");
     const exerciseMenu = document.getElementById("exerciseMenu");
     const displayArea = document.getElementById("displayArea");
+    const confirmButton = document.getElementById("confirmButton");
 
     if (!submitButton || !exerciseMenu || !displayArea) {
         console.error("Some DOM elements are missing!");
@@ -113,3 +114,17 @@ function displayExercises(exercises) {
         area.appendChild(exerciseDiv);
     });
 }
+
+submitButton.addEventListener('click', function() {
+    console.log("Button clicked");
+    const selectedCategory = exerciseMenu.value;
+    console.log("Selected category:", selectedCategory);
+    if (selectedCategory) {
+        displayExercises(exerciseData[selectedCategory]);
+    } else {
+        displayArea.innerHTML = 'Please select a category.';
+    }
+});
+confirmButton.addEventListener('click', function() {
+    const selectedCategory = exerciseMenu.value;
+});
