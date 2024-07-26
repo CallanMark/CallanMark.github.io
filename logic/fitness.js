@@ -97,10 +97,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedCategory = exerciseMenu.value;
         if (selectedCategory) {
             displayExercises(exerciseData[selectedCategory]);
+            populateExerciseSubMenu(selectedCategory);
         } else {
             displayArea.innerHTML = 'Please select a category.';
         }
     });
+
+    
 });
 
 function populateExerciseSubMenu(category) {
@@ -140,6 +143,4 @@ submitButton.addEventListener('click', function() {
         displayArea.innerHTML = 'Please select a category.';
     }
 });
-confirmButton.addEventListener('click', function() {
-    const selectedCategory = exerciseMenu.value;
-});
+
