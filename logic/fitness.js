@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const displayArea = document.getElementById("displayArea");
     const confirmButton = document.getElementById("confirmButton");
 
-    if (!submitButton || !exerciseMenu || !displayArea) {
+    if (!submitButton || !exerciseMenu || !displayArea ) {
         console.error("Some DOM elements are missing!");
         return;
     }
@@ -132,7 +132,7 @@ function displayExercises(exercises) {
         area.appendChild(exerciseDiv);
     });
 }
-
+/*
 submitButton.addEventListener('click', function() {
     console.log("Button clicked");
     const selectedCategory = exerciseMenu.value;
@@ -144,3 +144,4 @@ submitButton.addEventListener('click', function() {
     }
 });
 
+*/
