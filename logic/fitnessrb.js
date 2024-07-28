@@ -81,6 +81,19 @@ const exerciseData = {
     ]
 };
 
+function displayExercises(exercises) {
+    const area = document.getElementById("displayArea");
+    area.innerHTML = ''; // Clear previous content
+
+    if (!exercises) return; // If no exercises are selected
+
+    exercises.forEach(exercise => {
+        const exerciseDiv = document.createElement("div");
+        exerciseDiv.innerHTML = `<strong>${exercise.name}</strong>: ${exercise.details}`;
+        area.appendChild(exerciseDiv);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const submitButton = document.getElementById("submitExercise");
     const exerciseMenu = document.getElementById("exerciseMenu");
@@ -102,18 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function displayExercises(exercises) {
-    const area = document.getElementById("displayArea");
-    area.innerHTML = ''; // Clear previous content
 
-    if (!exercises) return; // If no exercises are selected
-
-    exercises.forEach(exercise => {
-        const exerciseDiv = document.createElement("div");
-        exerciseDiv.innerHTML = `<strong>${exercise.name}</strong>: ${exercise.details}`;
-        area.appendChild(exerciseDiv);
-    });
-}
 
 submitButton.addEventListener('click', function() {
     console.log("Button clicked");
