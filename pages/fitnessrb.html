@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
   <title>Personal site</title>
-  <link href="home.css" rel="stylesheet" type="text/css" />
+  <link href="..home.css" rel="stylesheet" type="text/css" />
+  <h1> "    "</h1>
   <a href="home.html" class="button">Home</a>
   <a href="index.html" class="button">Personal LLM</a>
   <a href = "fitness.html" class="button"> Fitness Dashboard</a>
@@ -13,22 +14,25 @@
 </head>
 
 <body>
+  <br>
   <div id="timeD"> </div>
   <p id="currentDate"></p>
-  <p> placeholder (this will add to csv)</p>
+
 
     <h1>Log todays workout</h1>
  <div>
         <!-- Exercise Menu -->
         <label for="exerciseMenu">Select Exercise:</label>
         <select id="exerciseMenu">
-            <option value="push">Push</option>
-            <option value="pull">Pull</option>
-            <option value="legs">Legs</option>
-            <option value= "arms"> Arms</option>
-            <option value = "general"> General</option>
+            <option value="Push">Push</option>
+            <option value="Pull">Pull</option>
+            <option value="Legs">Legs</option>
+            <option value= "Arms"> Arms</option>
+            <option value = "General"> General</option>
         </select>
-    </div>
+        <button id="submitButton">Select</button> <!-- Submit button -->
+  </div>
+ 
 
     <div id="displayArea"></div> <!-- Where exercises will be shown -->
 
@@ -52,6 +56,7 @@
     </div>
 
     <div id="exerciseData"></div>
+  <div id = "displayArea"></div>
 
   <h2> Upload your image !</h2>
   <input type="file" accept="image/*" capture>
