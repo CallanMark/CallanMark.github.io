@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const exerciseSubMenu = document.getElementById("exerciseSubMenu");
     const displayArea = document.getElementById("displayArea");
     const confirmButton = document.getElementById("confirmButton");
+    const addMealButton = document.getElementById("addMealButton");
+    const uploadImageButton = document.getElementById("uploadImageButton");
 
     const exerciseData = {
         "Push": [
@@ -104,6 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             displayArea.innerHTML = 'Please select a category.';
         }
+    });
+
+    uploadImageButton.addEventListener("click",function() {
+        console.log("Button clicked [Upload Image]");
+    });
+
+    addMealButton.addEventListener("click",function() {
+        console.log("Button clicked (Add meal) ");
     });
 
     
