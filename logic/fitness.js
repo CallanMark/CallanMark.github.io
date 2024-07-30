@@ -100,12 +100,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     submitButton.addEventListener('click', function() {
         const selectedCategory = exerciseMenu.value;
+        const area = document.getElementById("displayArea")
+        if(selectedCategory.equals("Legs")){
+            console.log("LEGS!!");
+            displayArea.innerHTML= ' { name: Barbell Squats, details: 4 x 1 ',
+            'name : Walking Dumbbell Lunges, details: 4 x 20 ',
+            'name: Leg Curl details 3 x 10 x 10 (superset) '
+        }
+
+            /*
         if (selectedCategory) {
             displayExercises(exerciseData[selectedCategory]);
             populateExerciseSubMenu(selectedCategory);
         } else {
             displayArea.innerHTML = 'Please select a category.';
         }
+        */
     });
 
     uploadImageButton.addEventListener("click",function() {
