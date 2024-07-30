@@ -99,23 +99,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     submitButton.addEventListener('click', function() {
-        const selectedCategory = exerciseMenu.value;
-        const area = document.getElementById("displayArea")
-        if(selectedCategory.equals("Legs")){
-            console.log("LEGS!!");
-            displayArea.innerHTML= ' { name: Barbell Squats, details: 4 x 1 ',
-            'name : Walking Dumbbell Lunges, details: 4 x 20 ',
-            'name: Leg Curl details 3 x 10 x 10 (superset) '
-        }
-
-            /*
+        
+        const selectedCategory = exerciseMenu.value.charAt(0).toUpperCase() + exerciseMenu.value.slice(1);
+        
         if (selectedCategory) {
             displayExercises(exerciseData[selectedCategory]);
             populateExerciseSubMenu(selectedCategory);
         } else {
             displayArea.innerHTML = 'Please select a category.';
         }
-        */
+        
     });
 
     uploadImageButton.addEventListener("click",function() {
@@ -133,8 +126,10 @@ function populateExerciseSubMenu(category) {
     const exerciseSubMenu = document.getElementById("exerciseSubMenu");
     exerciseSubMenu.innerHTML = '<option value="">Select Exercise</option>'; // Clear previous options
 
-    if (exerciseData[category]) {
-        exerciseData[category].forEach(exercise => {
+    const normalizedCategory = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+
+    if (exerciseData[normalizedCategory]) {
+        exerciseData[normalizedCategory].forEach(exercise => {
             const option = document.createElement("option");
             option.value = exercise.name;
             option.textContent = exercise.name;
@@ -142,6 +137,7 @@ function populateExerciseSubMenu(category) {
         });
     }
 }
+
 
 function displayExercises(exercises) {
     const area = document.getElementById("displayArea");
@@ -155,6 +151,59 @@ function displayExercises(exercises) {
         area.appendChild(exerciseDiv);
     });
 }
+
+
+console.log("Script is running");
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM is loaded");
+
+    const addMealButton = document.getElementById('addMealButton');
+    console.log("Add Meal Button:", addMealButton);
+
+    if (addMealButton) {
+        addMealButton.addEventListener('click', function() {
+            console.log("Button clicked");
+            
+            const meal = document.getElementById('meal').value;
+            const protein = document.getElementById('protein').value;
+            const calories = document.getElementById('calories').value;
+
+            console.log("Meal:", meal, "Protein:", protein, "Calories:", calories);
+
+            if (meal && protein && calories) {
+                console.log("All fields filled, creating CSV");
+                const csvLine = `${meal},${protein},${calories}\n`;
+                
+                // Create a Blob with the CSV data
+                const blob = new Blob([csvLine], { type: 'text/csv;charset=utf-8;' });
+                
+                // Create a link element, set the download attribute, and click it
+                const link = document.createElement("a");
+                if (link.download !== undefined) {
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", "meal_log.csv");
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    console.log("CSV download initiated");
+                }
+
+                // Clear the input fields
+                document.getElementById('meal').value = '';
+                document.getElementById('protein').value = '';
+                document.getElementById('calories').value = '';
+            } else {
+                console.log("Some fields are empty");
+                alert('Please fill in all fields');
+            }
+        });
+    } else {
+        console.log("Add Meal Button not found");
+    }
+});
 /*
 submitButton.addEventListener('click', function() {
     console.log("Button clicked");

@@ -65,17 +65,20 @@
     <div id="exerciseData"></div>
   <div id = "displayArea1"></div>
  <h2> Log todays Meals</h2>
-  <label for="meal"> Meal : </label>
-  <textarea id="meal" rows="4" cols="1" placeholder="Meal name"></textarea>
-  <label for="protein"> Protein :</label>
-  <textarea id="protein" rows="4" cols="1" placeholder="Protein"></textarea>
-  <label for="calories"> calories </label>
-  <textarea id="calories" rows="4" cols="1" placeholder="calories"></textarea>
-  <button id="addMealButton">Add meal</button> 
+ <label for="meal">Meal:</label>
+ <input type="text" id="meal" placeholder="Meal name">
+ 
+ <label for="protein">Protein:</label>
+ <input type="number" id="protein" placeholder="Protein (g)">
+ 
+ <label for="calories">Calories:</label>
+ <input type="number" id="calories" placeholder="Calories">
+ 
+ <button id="addMealButton">Add meal</button> 
   <h3> Take a picture of a meal </h3>
   <input type="file" accept="image/*" capture>
-  <button id="uploadImageButton">Upload Image</button> 
+  <button id="uploadImageButton">Upload Image()</button> 
 </body>
 
-<script src="logic/fitness.js"></script>
+<script src="../logic/fitness.js"></script>
 </html>
