@@ -153,6 +153,20 @@ function displayExercises(exercises) {
 }
 
 
+const exerciseSubMenu = document.getElementById("exerciseSubMenu");
+
+exerciseSubMenu.addEventListener('change', function() {
+    const selectedCategory = exerciseMenu.value.charAt(0).toUpperCase() + exerciseMenu.value.slice(1);
+    const selectedExercise = this.value;
+    
+    if (selectedExercise) {
+        const exercise = exerciseData[selectedCategory].find(ex => ex.name === selectedExercise);
+        if (exercise) {
+            displayArea.innerHTML = `<strong>${exercise.name}</strong>: ${exercise.details}`;
+        }
+    }
+});
+
 console.log("Script is running");
 
 document.addEventListener('DOMContentLoaded', function() {
