@@ -170,52 +170,108 @@ exerciseSubMenu.addEventListener('change', function() {
 console.log("Script is running");
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM is loaded");
-
     const addMealButton = document.getElementById('addMealButton');
-    console.log("Add Meal Button:", addMealButton);
 
     if (addMealButton) {
         addMealButton.addEventListener('click', function() {
-            console.log("Button clicked");
-            
-            const meal = document.getElementById('meal').value;
+            const mealName = document.getElementById('mealName').value;
+            const mealWeight = document.getElementById('mealWeight').value;
             const protein = document.getElementById('protein').value;
+            const carbs = document.getElementById('carbs').value;
+            const fat = document.getElementById('fat').value;
             const calories = document.getElementById('calories').value;
 
-            console.log("Meal:", meal, "Protein:", protein, "Calories:", calories);
+            if (mealName && mealWeight && protein && carbs && fat && calories) {
+                const mealData = {
+                    name: mealName,
+                    weight: mealWeight,
+                    protein: protein,
+                    carbs: carbs,
+                    fat: fat,
+                    calories: calories
+                };
 
-            if (meal && protein && calories) {
-                console.log("All fields filled, creating CSV");
-                const csvLine = `${meal},${protein},${calories}\n`;
-                
-                // Create a Blob with the CSV data
-                const blob = new Blob([csvLine], { type: 'text/csv;charset=utf-8;' });
-                
-                // Create a link element, set the download attribute, and click it
-                const link = document.createElement("a");
-                if (link.download !== undefined) {
-                    const url = URL.createObjectURL(blob);
-                    link.setAttribute("href", url);
-                    link.setAttribute("download", "meal_log.csv");
-                    link.style.visibility = 'hidden';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    console.log("CSV download initiated");
-                }
-
-                // Clear the input fields
-                document.getElementById('meal').value = '';
-                document.getElementById('protein').value = '';
-                document.getElementById('calories').value = '';
+                // Send POST request
+                fetch('YOUR_API_ENDPOINT_HERE', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(mealData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    alert('Meal added successfully!');
+                    // Clear the input fields
+                    document.getElementById('mealName').value = '';
+                    document.getElementById('mealWeight').value = '';
+                    document.getElementById('protein').value = '';
+                    document.getElementById('carbs').value = '';
+                    document.getElementById('fat').value = '';
+                    document.getElementById('calories').value = '';
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Error adding meal. Please try again.');
+                });
             } else {
-                console.log("Some fields are empty");
                 alert('Please fill in all fields');
             }
         });
     } else {
         console.log("Add Meal Button not found");
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (keep your existing code)
+
+    const addExerciseButton = document.getElementById('addExerciseButton');
+
+    if (addExerciseButton) {
+        addExerciseButton.addEventListener('click', function() {
+            const exerciseName = document.getElementById('exerciseName').value;
+            const weight = document.getElementById('weight').value;
+            const reps = document.getElementById('reps').value;
+
+            if (exerciseName && weight && reps) {
+                const currentTime = new Date().toISOString(); // Get current time in ISO format
+                
+                const exerciseData = {
+                    type: exerciseName,
+                    weight: weight,
+                    reps: reps,
+                    time: currentTime
+                };
+
+                // Send POST request
+                fetch('YOUR_EXERCISE_API_ENDPOINT_HERE', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(exerciseData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    alert('Exercise added successfully!');
+                    // Clear the input fields
+                    document.getElementById('exerciseName').value = '';
+                    document.getElementById('weight').value = '';
+                    document.getElementById('reps').value = '';
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Error adding exercise. Please try again.');
+                });
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+    } else {
+        console.log("Add Exercise Button not found");
     }
 });
 /*
