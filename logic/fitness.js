@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
 
                 // Send POST request
-                fetch('YOUR_API_ENDPOINT_HERE', {
+                fetch('https://1a0b-2a02-8084-b383-7f80-d074-d562-ef4e-27de.ngrok-free.app/api/data', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
 
                 // Send POST request
-                fetch('YOUR_EXERCISE_API_ENDPOINT_HERE', {
+                fetch('https://1a0b-2a02-8084-b383-7f80-d074-d562-ef4e-27de.ngrok-free.app/api/data ', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
