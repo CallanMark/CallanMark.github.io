@@ -9,9 +9,3 @@ This is not a portfolio website where I show off projects, This was built for my
 [View the site ][(https://callanmark.github.io/home.html)
 API interactivy with the chatbot is turned off
 
-# To do 
-- Renable gpt with env variable 
-- Display exercise data properly 
-- Add diet menu upload 
-- write add to csv functions 
-- design display database 
